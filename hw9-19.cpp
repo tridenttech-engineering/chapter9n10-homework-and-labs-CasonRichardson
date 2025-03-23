@@ -42,7 +42,7 @@ int main()
 
     
     //display payments 
-    cout << fixed << setprecision(0) << endl; 
+    cout << fixed << setprecision(2) << endl; 
     cout << "Credit union payment: $" 
         << creditPayment << endl;
     cout << "Dealer payment: $"
