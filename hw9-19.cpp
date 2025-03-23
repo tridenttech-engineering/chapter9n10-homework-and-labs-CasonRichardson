@@ -46,13 +46,7 @@ int main()
     dealertotalPaid = dealerPayment * term * 12;
     
     //display payments
-   if (creditPayment == -1){
-       cout << "Error division by 0";
-   }
-    else if (dealerPayment == -1){
-        cout << "Error division by 0";
-    }
-    else {
+  
     cout << fixed << setprecision(2) << endl; 
     cout << "Credit union payment: $" 
         << creditPayment << endl;
@@ -62,27 +56,23 @@ int main()
         << uniontotalPaid << endl;
     cout << "Total paid uing Dealership: $"
         << dealertotalPaid << endl;
-    }
+    
     return 0;
 }//end of main function    
 
     //*****function definitions*****
-double getPayment(int prin,
-                  double monthRate, 
-                  int months)
+double getPayment(int prin, double monthRate, int months)
 {
     //calculates and returns a monthly payment
     double monthPay = 0.0;
-    double denom; //just used it as a variable for if statement
+    double denominator = 1 - pow(1 + monthRate, -months);
 
-    //function defining denominator
-    denom = (1-pow(monthRate + 1, -months));
-
-        if (denom == 0) {
-        return -1; }
-
-        else {
-            monthPay = prin * monthRate / denom;
-            return monthPay;
+    if (denominator == 0) //check for divide by 0
+    {
+        return -1;
     }
+    
+            monthPay = prin * monthRate / denominator;
+            return monthPay;
 }
+
