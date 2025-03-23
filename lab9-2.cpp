@@ -16,7 +16,6 @@ int rebate = 0;
 double unionRt = 0.0;
 double dealerRt = 0.0;
 int term = 0;
-
 double unionPay = 0.0;
 double dealerPay = 0.0;
 
@@ -35,6 +34,7 @@ unionPay = getPayment(carPrice - rebate, unionRt / 12, term * 12);
 
 dealerPay = getPayment(carPrice - rebate, dealerRt / 12, term * 12);
 
+cout << fixed << setprecision(2) << endl;
 cout << "Union Pay: $" << unionPay << endl;
 cout << "Dealer Pay: $" << dealerPay << endl;
 
@@ -44,7 +44,6 @@ cout << "Dealer Pay: $" << dealerPay << endl;
 double getPayment(int prin, double monthRt, int months)
 {
     double monthPay = 0.0;
-
-    monthPay = prin * monthRt / (1 - pow(monthRt +1, -months));
+    monthPay = prin * monthRt / (1 - pow(monthRt + 1, -months));
     return monthPay;
 }
