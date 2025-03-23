@@ -40,19 +40,18 @@ int main()
     dealerPayment = getPayment(carPrice, 
         dealerRate / 12, term * 12);    //assign values to calculate payments
 
-    //calculate what the user will pay in total
-
-    uniontotalPaid = creditPayment * term * 12;
-    dealertotalPaid = dealerPayment * term * 12;
     
-    //display payments
-  
-    cout << fixed << setprecision(2) << endl; 
+    //display payments 
+    cout << fixed << setprecision(0) << endl; 
     cout << "Credit union payment: $" 
         << creditPayment << endl;
     cout << "Dealer payment: $"
         << dealerPayment << endl;
-    cout << "Total paid using Credit Union: $"
+
+    uniontotalPaid = creditPayment * term * 12;
+    dealertotalPaid = dealerPayment * term * 12;
+
+     cout << "Total paid using Credit Union: $"
         << uniontotalPaid << endl;
     cout << "Total paid uing Dealership: $"
         << dealertotalPaid << endl;
