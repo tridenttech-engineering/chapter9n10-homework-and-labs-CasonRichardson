@@ -49,13 +49,11 @@ int main()
     cout << "Dealer payment: $"
         << dealerPayment << endl;
 
-    uniontotalPaid = creditPayment * term * 12;
-    dealertotalPaid = dealerPayment * term * 12;
+    uniontotalPaid = getTotal(creditPayment, term * 12);
+    dealertotalPaid = getTotal(dealerPayment, term * 12);
 
-     cout << "Total paid using Credit Union: $"
-        << uniontotalPaid << endl;
-    cout << "Total paid uing Dealership: $"
-        << dealertotalPaid << endl;
+     cout << "Total paid using Credit Union: $" << uniontotalPaid << endl;
+    cout << "Total paid uing Dealership: $" << dealertotalPaid << endl;
     
     return 0;
 }//end of main function    
@@ -74,6 +72,10 @@ double getPayment(int prin, double monthRate, int months)
 }
 double getTotal(double monthPay, int months)
 {
+    if (monthPay == -1) {
+        return -1;
+    }
+    
     double total;
     double roundedPay;
     
